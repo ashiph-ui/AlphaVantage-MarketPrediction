@@ -1,0 +1,27 @@
+[
+  {
+    "url": "https://example.com",
+    "line_number": 0,
+    "text": "This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission."
+  },
+  {
+    "url": "https://example.com",
+    "line_number": 1,
+    "text": "More information..."
+  },
+  {
+    "url": "https://quotes.toscrape.com",
+    "line_number": 0,
+    "text": "Login"
+  },
+  {
+    "url": "https://quotes.toscrape.com",
+    "line_number": 1,
+    "text": "Quotes by: GoodReads.com"
+  },
+  {
+    "url": "https://quotes.toscrape.com",
+    "line_number": 2,
+    "text": "Made with ❤ by Zyte"
+  }
+]
