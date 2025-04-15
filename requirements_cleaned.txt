@@ -1,0 +1,7 @@
+alpha_vantage==3.0.0
+pandas==2.2.3
+polars==1.27.1
+psycopg2==2.9.10
+PyYAML==6.0.2
+requests==2.22.0
+SQLAlchemy==2.0.40
