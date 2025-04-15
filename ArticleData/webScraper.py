@@ -18,7 +18,7 @@ def init_driver():
     options = Options()
     options.add_argument('--headless')  # Run in headless mode (no browser UI)
     options.add_argument('--disable-gpu')
-    service = Service(executable_path='C:\Users\biden\PycharmProjects\AlphaVantage-MarketPrediction\chromedriver.exe')
+    service = Service(executable_path='/Users/biden/PycharmProjects/AlphaVantage-MarketPrediction/chromedriver.exe')
     driver = webdriver.Chrome(service=service, options=options)
     return driver
 
