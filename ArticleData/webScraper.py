@@ -37,21 +37,56 @@ def scrape_elements_with_optional_classes(soup, tag_name, class_names=None):
         elements = soup.find_all(tag_name)
     return elements
 
+# Extract links that match certain keywords
+def extract_filtered_links(soup, base_url, keywords=None):
+    found_links = set()
+    keywords = keywords or []
+
+    for a_tag in soup.find_all('a', href=True):
+        href = a_tag['href']
+        if href.startswith('/'):
+            href = base_url.rstrip('/') + href
+        if href.startswith('http') and any(kw in href for kw in keywords):
+            found_links.add(href)
+
+    return found_links
+
+# Save new links to links.json
+def save_new_links(new_links, filename='links.json'):
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            existing_links = set(json.load(f))
+    except FileNotFoundError:
+        existing_links = set()
+
+    updated_links = list(existing_links.union(new_links))
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(updated_links, f, ensure_ascii=False, indent=2)
+
 # Function to scrape elements with Selenium and WebDriverWait
-def scrape_with_selenium(driver, url):
+def scrape_with_selenium(driver, url, keywords_for_links=None):
     driver.get(url)
-    # Wait for the page to load completely, adjust this to wait for a specific element if needed
     WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.TAG_NAME, 'body'))  # Waiting for the 'body' tag to load
     )
-    return BeautifulSoup(driver.page_source, 'html.parser')
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+
+    new_links = set()
+    if keywords_for_links:
+        new_links = extract_filtered_links(soup, url, keywords_for_links)
+
+    return soup, new_links
 
 # Function to scrape <p> elements from links
-def scrape_paragraphs_from_links(driver, links, class_names=None):
+def scrape_paragraphs_from_links(driver, links, class_names=None, keywords_for_links=None):
     all_paragraphs = []
+    all_new_links = set()
+
     for link in links:
         try:
-            soup = scrape_with_selenium(driver, link)
+            soup, new_links = scrape_with_selenium(driver, link, keywords_for_links)
+            all_new_links.update(new_links)
+
             paragraphs = scrape_elements_with_optional_classes(soup, 'p', class_names)
             for i, p in enumerate(paragraphs):
                 all_paragraphs.append({
@@ -61,6 +96,10 @@ def scrape_paragraphs_from_links(driver, links, class_names=None):
                 })
         except Exception as e:
             print(f"Failed to fetch {link}: {e}")
+
+    if all_new_links:
+        save_new_links(all_new_links)
+
     return all_paragraphs
 
 # Function to scrape <div> elements from links
@@ -68,7 +107,7 @@ def scrape_divs_from_links(driver, links, class_names=None):
     all_divs = []
     for link in links:
         try:
-            soup = scrape_with_selenium(driver, link)
+            soup, _ = scrape_with_selenium(driver, link)
             divs = scrape_elements_with_optional_classes(soup, 'div', class_names)
             for i, div in enumerate(divs):
                 all_divs.append({
@@ -85,13 +124,10 @@ def scrape_h3_from_links(driver, links, class_names=None):
     all_h3 = []
     for link in links:
         try:
-            soup = scrape_with_selenium(driver, link)
-            
-            # Adding WebDriverWait here for <h3> elements specifically if needed
+            soup, _ = scrape_with_selenium(driver, link)
             WebDriverWait(driver, 20).until(
                 EC.presence_of_all_elements_located((By.TAG_NAME, 'h3'))  # Wait until all <h3> tags are loaded
             )
-            
             h3_elements = scrape_elements_with_optional_classes(soup, 'h3', class_names)
             for i, h3 in enumerate(h3_elements):
                 all_h3.append({
@@ -107,10 +143,11 @@ def scrape_h3_from_links(driver, links, class_names=None):
 urls = read_links_from_json('links.json')
 paragraph_classes = ['intro', 'highlight']  # Or set to None
 div_classes = ['box', 'content']
-h3_classes = ['clamp tw-line-clamp-none yf-1y7058a', 'clamp  yf-1y7058a']# Or set to None
+h3_classes = ['clamp tw-line-clamp-none yf-1y7058a', 'clamp  yf-1y7058a']  # Or set to None
+keywords_to_watch = ['article', 'news', 'post']  # 👈 This is now added and used
 
 driver = init_driver()
-paragraph_objects = scrape_paragraphs_from_links(driver, urls, paragraph_classes)
+paragraph_objects = scrape_paragraphs_from_links(driver, urls, paragraph_classes, keywords_to_watch)
 div_objects = scrape_divs_from_links(driver, urls, div_classes)
 h3_objects = scrape_h3_from_links(driver, urls, h3_classes)
 driver.quit()
@@ -124,5 +161,4 @@ with open('divs.json', 'w', encoding='utf-8') as dfile:
 
 with open('h3.json', 'w', encoding='utf-8') as hfile:
     json.dump(h3_objects, hfile, ensure_ascii=False, indent=2)
-
 
