@@ -4,7 +4,7 @@ import pandas as pd
 import os
 from sqlalchemy import create_engine, inspect
 from sqlalchemy.dialects.postgresql import insert
-from sqlalchemy import Table, MetaData, Column, Integer, String, Date, Numeric, BigInteger
+from sqlalchemy import Table, MetaData, Column, Integer, String, Date, Numeric, BigInteger, text
 
 
 class DatabaseConnector:
@@ -34,6 +34,7 @@ class DatabaseConnector:
         inspector = inspect(engine)
         inspector.get_table_names()
         return inspector.get_table_names()
+    
     def update_stock_data_from_csv(self, csv_path: str, table_name: str = 'stock_data'):
         """Load CSV data and update the database while avoiding duplicates."""
 
@@ -63,6 +64,17 @@ if __name__ == "__main__":
     db_connector = DatabaseConnector()
     creds = db_connector.read_db_creds()
     engine = db_connector.init_db_engine(creds)
+    
+    with engine.connect() as conn:
+        # List all tables in the database
+        tables = db_connector.list_db_tables(engine)
+        print("Tables in the database:", tables)
+
+        # Query data from the stock_data table
+        result = conn.execute(text("SELECT * FROM stock_data LIMIT 10;"))
+        for row in result:
+            print(row)
+
 
     possible_folders = ['data/stockdata', './stockdata']
     csv_folder = None
@@ -84,3 +96,4 @@ if __name__ == "__main__":
             csv_path = os.path.join(csv_folder, csv_file)
             print(f"Processing {csv_file}...")
             db_connector.update_stock_data_from_csv(csv_path)
+    
