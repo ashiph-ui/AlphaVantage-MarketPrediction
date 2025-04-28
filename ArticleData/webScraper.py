@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import json
 import time
 import os
+from datetime import datetime
 
 # Function to read links from a JSON file
 def read_links_from_json(filename):
@@ -19,10 +20,10 @@ def read_links_from_json(filename):
 def init_driver():
     try:
         options = Options()
-        options.add_experimental_option("prefs", {"profile.default_content_settings_values.cookies": 2})
-        options.add_argument('--headless')  # Run in headless mode (no browser UI)
+        # options.add_experimental_option("prefs", {"profile.default_content_settings_values.cookies": 2})
+        # options.add_argument('--headless')  # Run in headless mode (no browser UI)
         options.add_argument('--disable-gpu')
-        options.add_argument("--disable-features=CookieControls")
+        # options.add_argument("--disable-features=CookieControls")
         service = Service(executable_path='/Users/Admin/PersonalProject/AlphaVantage-MarketPrediction/chromedriver.exe')  # For chif
         # service = Service(executable_path='/Users/biden/PycharmProjects/AlphaVantage-MarketPrediction/chromedriver.exe')  # For biden
         driver = webdriver.Chrome(service=service, options=options)
@@ -31,37 +32,67 @@ def init_driver():
         print(f"Failed to initialise driver. Error message: {e}")
     return driver
 
-def reject_cookies(url):
+def reject_cookies(driver, url):
+    print(f"Starting cookie rejection protocol for {url}")
     # URL and driver setup
-    url = "https://finance.yahoo.com/?guccounter=1"
-    service = Service(executable_path='/Users/Admin/PersonalProject/AlphaVantage-MarketPrediction/chromedriver.exe')
-    driver = webdriver.Chrome(service=service)
-    driver.get(url)
+    if url == "https://finance.yahoo.com":
+        url = "https://finance.yahoo.com/?guccounter=1"
+        
+        # Wait for cookie acceptance button to appear and click it
+        try:
+            # Wait for the "Reject all" button to be clickable
+            button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Reject all')]"))
+            )
+            button.click()
+            print("Cookie acceptance declined.")
+        except Exception as e:
+            print("Error:", e)
 
-    # Wait for cookie acceptance button to appear and click it
-    try:
-        # Wait for the "Reject all" button to be clickable
-        button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Reject all')]"))
-        )
-        button.click()
-        print("Cookie acceptance declined.")
-    except Exception as e:
-        print("Error:", e)
+        # Wait for the link to appear and click it
+        try:
+            # Wait for the link to be clickable
+            link = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//a[@href='https://finance.yahoo.com/?guccounter=2']"))
+            )
+            link.click()
+            print("Link clicked successfully.")
+        except Exception as e:
+            print("Error:", e)
 
-    # Wait for the link to appear and click it
-    try:
-        # Wait for the link to be clickable
-        link = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='https://finance.yahoo.com/?guccounter=2']"))
-        )
-        link.click()
-        print("Link clicked successfully.")
-    except Exception as e:
-        print("Error:", e)
+        # Optionally, close the browser after performing actions
+        time.sleep(5)  # Wait a few seconds to ensure actions are completed
 
-    # Optionally, close the browser after performing actions
-    time.sleep(5)  # Wait a few seconds to ensure actions are completed
+    elif url == "https://finviz.com/news.ashx":
+        
+        # Wait for cookie acceptance button to appear and click it
+        try:
+            time.sleep(3)
+            print("Finding button elements")
+            # Find all button elements on the page
+            buttons = driver.find_elements(By.TAG_NAME, "button")
+            
+            # Print all found buttons
+            print(f"Found {len(buttons)} buttons:")
+            for index, button in enumerate(buttons, 1):
+                title = button.get_attribute('title')
+                aria_label = button.get_attribute('aria-label')
+                text = button.text
+                print(f"Button {index}: text='{text}', title='{title}', aria-label='{aria_label}'")
+            for button in buttons:
+                if 'DISAGREE' in button.text:
+                    button.click()
+                    print("Clicked on DISAGREE button.")
+                    break
+                    
+        except Exception as e:
+            print("Error:", e)
+
+        finally:
+            # Switch back to the main content
+            driver.switch_to.default_content()
+
+            time.sleep(10)
     
 
 # Helper function to find elements with given classes or no class
@@ -91,7 +122,46 @@ def extract_filtered_links(soup, base_url, keywords=None):
 
     return found_links
 
-# Save new links to links.json
+def save_scraped_data(new_data, filename):
+    # Step 1: Load existing data
+    if os.path.exists(filename):
+        with open(filename, 'r', encoding='utf-8') as f:
+            try:
+                existing_data = json.load(f)
+            except json.JSONDecodeError:
+                existing_data = []
+    else:
+        existing_data = []
+    
+    # Step 2: Build a set of existing unique (url, text) pairs
+    existing_keys = {(item.get('url', ''), item.get('text', '').strip()) for item in existing_data}
+
+    # Step 3: Filter new data to avoid duplication and empty text
+    cleaned_new_data = []
+    for item in new_data:
+        url = item.get('url', '')
+        text = item.get('text', '').strip()  # 🚨 strip spaces
+
+        if not text:
+            continue  # ⛔ Skip items with empty text after stripping
+        
+        key = (url, text)
+        if key not in existing_keys:
+            item['text'] = text  # Save the stripped version
+            item['timestamp'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # Add timestamp
+            cleaned_new_data.append(item)
+    
+    if not cleaned_new_data:
+        print("ℹ️ No new non-empty, unique data to save.")
+        return
+    
+    # Step 4: Merge and save
+    updated_data = existing_data + cleaned_new_data
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(updated_data, f, ensure_ascii=False, indent=2)
+
+    print(f"✅ Saved {len(cleaned_new_data)} new records. Total records now: {len(updated_data)}")
+
 def save_new_links(new_links, filename='links.json'):
     try:
         with open(filename, 'r', encoding='utf-8') as f:
@@ -106,7 +176,7 @@ def save_new_links(new_links, filename='links.json'):
 # Function to scrape elements with Selenium and WebDriverWait
 def scrape_with_selenium(driver, url, keywords_for_links=None):
     driver.get(url)
-    reject_cookies(url)
+    reject_cookies(driver, url)
     WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.TAG_NAME, 'body'))  # Waiting for the 'body' tag to load
     )
@@ -198,18 +268,18 @@ keywords_to_watch = ['article', 'news', 'post']  # 👈 This is now added and us
 
 driver = init_driver()
 
+# Scrape paragraphs and save
 paragraph_objects = scrape_paragraphs_from_links(driver, urls, paragraph_classes, keywords_to_watch)
-with open('article-data-json/paragraphs.json', 'w', encoding='utf-8') as pfile:
-    json.dump(paragraph_objects, pfile, ensure_ascii=False, indent=2)
+save_scraped_data(paragraph_objects, 'article-data-json/paragraphs.json')
 
+# Scrape divs and save
 div_objects = scrape_divs_from_links(driver, urls, div_classes)
-with open('article-data-json/divs.json', 'w', encoding='utf-8') as dfile:
-    json.dump(div_objects, dfile, ensure_ascii=False, indent=2)
+save_scraped_data(div_objects, 'article-data-json/divs.json')
 
+# Scrape h3 and save
 h3_objects = scrape_h3_from_links(driver, urls, h3_classes)
-with open('article-data-json/h3.json', 'w', encoding='utf-8') as hfile:
-    json.dump(h3_objects, hfile, ensure_ascii=False, indent=2)
+save_scraped_data(h3_objects, 'article-data-json/h3.json')
 
 driver.quit()
 
-
+# Chif
