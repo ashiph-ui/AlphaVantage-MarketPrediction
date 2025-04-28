@@ -2,6 +2,8 @@ import polars as pl
 from alpha_vantage.timeseries import TimeSeries
 import os
 import yaml
+from time import sleep
+
 
 script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the script directory
 config_path = os.path.join(script_dir, 'config.yaml')  # Build the full path to config.yaml
@@ -71,4 +73,5 @@ def fetch_and_save_stock_data(symbol: str, api_key: str, output_dir: str = "./st
 if __name__ == '__main__':
     api_key, symbols = fetch_config_values()
     # for symbol in symbols:
-    #     fetch_and_save_stock_data(symbol, api_key)
+    #     fetch_and_save_stock_data(symbol, api_key) 
+    #     sleep(12)
