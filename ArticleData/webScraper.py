@@ -5,8 +5,9 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-import json
+from urllib.parse import urljoin
 import time
+import json
 import os
 from datetime import datetime
 
@@ -30,6 +31,7 @@ def init_driver():
         print("Successful initialisation to driver")
     except Exception as e:
         print(f"Failed to initialise driver. Error message: {e}")
+
     return driver
 
 def reject_cookies(driver, url):
@@ -104,6 +106,8 @@ def scrape_elements_with_optional_classes(soup, tag_name, class_names=None):
             el_classes = el.get('class', [])
             if not el_classes or any(cls in el_classes for cls in class_names):
                 elements.append(el)
+        if not elements:  # fallback if none found
+            elements = soup.find_all(tag_name)
     else:
         elements = soup.find_all(tag_name)
     return elements
@@ -115,11 +119,9 @@ def extract_filtered_links(soup, base_url, keywords=None):
 
     for a_tag in soup.find_all('a', href=True):
         href = a_tag['href']
-        if href.startswith('/'):
-            href = base_url.rstrip('/') + href
+        href = urljoin(base_url, href)  # safer than string concat
         if href.startswith('http') and any(kw in href for kw in keywords):
             found_links.add(href)
-
     return found_links
 
 def save_scraped_data(new_data, filename):
@@ -162,30 +164,30 @@ def save_scraped_data(new_data, filename):
 
     print(f"✅ Saved {len(cleaned_new_data)} new records. Total records now: {len(updated_data)}")
 
-def save_new_links(new_links, filename='links.json'):
+def save_new_links(new_links, filename='article-data-json/extracted_links.json'):
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             existing_links = set(json.load(f))
     except FileNotFoundError:
         existing_links = set()
-
     updated_links = list(existing_links.union(new_links))
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(updated_links, f, ensure_ascii=False, indent=2)
 
 # Function to scrape elements with Selenium and WebDriverWait
-def scrape_with_selenium(driver, url, keywords_for_links=None):
+def scrape_with_selenium(driver, url, keywords_for_links=None, wait_tag='body'):
     driver.get(url)
     reject_cookies(driver, url)
     WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.TAG_NAME, 'body'))  # Waiting for the 'body' tag to load
+        EC.presence_of_element_located((By.TAG_NAME, wait_tag))
     )
     soup = BeautifulSoup(driver.page_source, 'html.parser')
+    if not soup or not soup.body:
+        raise ValueError("No <body> tag found in page.")
 
     new_links = set()
     if keywords_for_links:
         new_links = extract_filtered_links(soup, url, keywords_for_links)
-
     return soup, new_links
 
 # Function to scrape <p> elements from links
@@ -241,11 +243,13 @@ def scrape_h3_from_links(driver, links, class_names=None):
     print("Running h3 scraper...")
     for link in links:
         try:
+
             print(f"Attempting to connect to {link}")
             soup, _ = scrape_with_selenium(driver, link)
             WebDriverWait(driver, 20).until(
                 EC.presence_of_all_elements_located((By.TAG_NAME, 'h3'))  # Wait until all <h3> tags are loaded
             )
+
             h3_elements = scrape_elements_with_optional_classes(soup, 'h3', class_names)
             for i, h3 in enumerate(h3_elements):
                 all_h3.append({
@@ -259,16 +263,17 @@ def scrape_h3_from_links(driver, links, class_names=None):
     return all_h3
 
 # MAIN EXECUTION
+
 urls = read_links_from_json('./article-data-json/links.json')
 print(urls)
 paragraph_classes = ['intro', 'highlight']  # Or set to None
+
 div_classes = ['box', 'content']
-h3_classes = ['clamp tw-line-clamp-none yf-1y7058a', 'clamp  yf-1y7058a']  # Or set to None
-keywords_to_watch = ['article', 'news', 'post']  # 👈 This is now added and used
+h3_classes = ['clamp tw-line-clamp-none yf-1y7058a', 'clamp  yf-1y7058a']
+keywords_to_watch = ['article', 'news', 'post']
 
 driver = init_driver()
 
-# Scrape paragraphs and save
 paragraph_objects = scrape_paragraphs_from_links(driver, urls, paragraph_classes, keywords_to_watch)
 save_scraped_data(paragraph_objects, 'article-data-json/paragraphs.json')
 
@@ -280,6 +285,8 @@ save_scraped_data(div_objects, 'article-data-json/divs.json')
 h3_objects = scrape_h3_from_links(driver, urls, h3_classes)
 save_scraped_data(h3_objects, 'article-data-json/h3.json')
 
+
 driver.quit()
+
 
 # Chif

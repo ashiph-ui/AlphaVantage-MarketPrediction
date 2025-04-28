@@ -1,1 +1,626 @@
-[]
+[
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 0,
+    "text": "News",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 1,
+    "text": "Life",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 2,
+    "text": "Entertainment",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 3,
+    "text": "Finance",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 4,
+    "text": "Sports",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 5,
+    "text": "New on Yahoo",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 6,
+    "text": "Trending Tickers",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 7,
+    "text": "Stocks rise to start huge week",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 8,
+    "text": "Wall Street bear warns stocks not pricing in 'even a mild recession'",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 9,
+    "text": "'A big boost to confidence': Trump pivots as trade negotiations drag on",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 10,
+    "text": "IBM to invest $150B in US over next 5 years",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 11,
+    "text": "Bessent says it's 'up to China' to deescalate trade war",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 12,
+    "text": "Trump's desire for cheap crude puts Big Oil's plans to test",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 13,
+    "text": "Morgan Stanley's Wilson: Weak dollar will buoy US stocks",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 14,
+    "text": "Tariffs muddy contrarian stock indicators flashing 'buy' sign",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 15,
+    "text": "Deliveroo surges on $3.6B takeover offer from DoorDash",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 16,
+    "text": "Latest",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 17,
+    "text": "IBM to Invest $150B in US Over Next Five Years",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 18,
+    "text": "Roper Technologies lifts annual forecasts on steady software demand, acquisitions",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 19,
+    "text": "Brazil's finance minister sees growing support for Mercosur-EU deal",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 20,
+    "text": "Food delivery service Deliveroo surges following $3.6B proposed takeover offer from DoorDash",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 21,
+    "text": "Oil Steadies as Traders Await Next Moves in China, US-Iran Talks",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 22,
+    "text": "British Food Delivery Firm Deliveroo's Stock Soars on DoorDash Acquisition Offer",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 23,
+    "text": "Trump’s desire for cheap crude puts Big Oil’s plans to test",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 24,
+    "text": "Sandoz CEO slams EU-wide drug price proposal, warns US tariffs will hurt patient access",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 25,
+    "text": "These Are The 5 Best Stocks To Buy Now Or Watch",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 26,
+    "text": "Dow Jones Rises As Nvidia Slides On New China AI Chip; Tesla Extends Rally",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 27,
+    "text": "S&P 500: Palantir, 2024's Big Winner, Leads Again In 2025. These Giants Are Laggards.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 28,
+    "text": "Josh Brown Says Rocket Companies (RKT) an ‘Obvious’ Buy for Rate Cut Environment",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 29,
+    "text": "Jim Cramer Recommends Buying TJX Companies (TJX) Amid Trump Tariffs",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 30,
+    "text": "Technical Assessment: Neutral in the Intermediate-Term",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 31,
+    "text": "Jim Cramer Explains Why Kraft Heinz (KHC) Not an Ideal Pick for ‘Safety’",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 32,
+    "text": "Microsoft, Meta, Apple, Amazon: Mag 7 earnings to watch this week",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 33,
+    "text": "April jobs report may reflect 'real big pause in the economy'",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 34,
+    "text": "Busy week ahead: Big Tech earnings & April jobs data",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 35,
+    "text": "Widespread power outage hits parts of Spain & Portugal",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 36,
+    "text": "Mag 7 earnings, April jobs, Trump's first 100 days: 3 Things",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 37,
+    "text": "Trending Tickers",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 0,
+    "text": "Account Settings",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 1,
+    "text": "5 charts that show how Trump’s first 100 days have reshaped Americans’ finances",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 2,
+    "text": "Stocks have had a good bounce. This investment manager thinks lows will be retested.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 3,
+    "text": "Stock-market investors are high on ‘hopium,’ strategist says. Better to fade rallies as trade uncertainty continues.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 4,
+    "text": "With the S&P 500 looking ‘stuck,’ investors should seek out stocks that have already priced in bad news, says Morgan Stanley",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 5,
+    "text": "Domino’s profit falls short of estimates as U.S. same-store sales drop, margins shrink",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 6,
+    "text": "Bezos-funded electric-truck startup could fill a hole in the automotive market",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 7,
+    "text": "Madrid bourse remains in operation after massive power outage strikes Spain and Portugal",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 8,
+    "text": "Narrow gains at open as U.S. stocks seek to extend winning streak to a fifth session",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 9,
+    "text": "What a plunge in shipping traffic from China says about tariffs, stocks and the economy",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 10,
+    "text": "Trump is taking us back to the slow-growth, high-inflation 1970s — or worse",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 11,
+    "text": "Investing is riskier now. Why your money needs next-level protection.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 12,
+    "text": "This common worry about Nvidia is ‘laughable,’ Morgan Stanley says",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 13,
+    "text": "A ‘property-tax revolt’ is underway across the country. These numbers explain what’s driving it.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 14,
+    "text": "More tech heavyweights set to report earnings after Alphabet offers some hope amid tariff fears",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 15,
+    "text": "Here’s how much money Shedeur Sanders lost out on by falling to the fifth round of the NFL draft",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 16,
+    "text": "Why airlines were already raising baggage fees even before travel demand started dropping",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 17,
+    "text": "The NYSE’s most famous trader says it’s a great time for traders and shares how to play the volatility",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 18,
+    "text": "It’s time to buy tech stocks: 4 ways to find winners while the market is down",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 19,
+    "text": "College decision day is coming. How to decide which school you can afford in this crazy economy.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 20,
+    "text": "Why your Roth 401(k) match from work doesn’t go into a tax-free account yet",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 21,
+    "text": "The top 3 excuses people make to put off estate planning — and why they’re all wrong",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 22,
+    "text": "Is going to college worth it? Ask these 5 questions to make sure it’s a good investment for you.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 23,
+    "text": "People are more worried about their jobs now than they were during the pandemic when everything closed",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 24,
+    "text": "The workers most at risk of being laid off now that the U.S. economy has slowed",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 25,
+    "text": "That RFK Jr. food dye ban? You could be the one paying for the switch to natural alternatives, experts say.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 26,
+    "text": "Could tariffs slow down fast fashion and help the environment? Don’t count on it.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 27,
+    "text": "Some Americans are stockpiling $220 sneakers before Trump’s tariffs raise prices even higher",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 28,
+    "text": "If a financial adviser wants to roll over your retirement savings, watch out",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 29,
+    "text": "My eldest son refused to share his father’s $500K inheritance with his siblings. Should I cut him off?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 30,
+    "text": "‘An argument ensued’: My mother entrusted my inheritance to her second husband. That’s when it all went horribly wrong.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 31,
+    "text": "‘I’m very cynical’: My stepmother, 85, makes bizarre requests for money from my father’s $10M trust. Should I be concerned?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 32,
+    "text": "‘I’m literally afraid to look at my balance’: I have $300K in a 2025 target-date fund. Is there a chance it will recover?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 33,
+    "text": "Kevin Warsh says the Fed is broken. He’s taking dead aim at Powell’s job.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 34,
+    "text": "Expectations of Fed rate cut by early summer fade",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 35,
+    "text": "Trump won’t fire Powell — but he could still pressure the Fed, says economist studying president’s tweets",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 36,
+    "text": "What Trump’s next 100 days will mean for taxes, markets and your wallet",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 37,
+    "text": "Where Trump’s tariffs and economic promises stand as he nears 100 days in office",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 38,
+    "text": "Elizabeth Warren presses Bessent for answers after his remarks at private Wall Street event",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 39,
+    "text": "Pandemic-era shortages may return without trade-war deal with China, businesses warn",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 40,
+    "text": "Housing market stalls as homeowners struggle to sell: ‘We’re really bleeding’",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 41,
+    "text": "Boeing contracts and tariff ‘front running’ boost durable-goods orders. It won’t last if trade wars keep raging.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 42,
+    "text": "14 financial pros reveal the No. 1 money concern their clients are facing now",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 43,
+    "text": "We’re in our 60s and earn over $11K per month – but now we’re caring for a 5-year-old and facing a mortgage with 25 years left. Help.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 44,
+    "text": "20 best deals to get now for Wayfair’s massive Way Day sale",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 45,
+    "text": "‘Where should I go from here?’ I’m 68 and retired with my home and car paid off. But I only have $170K in savings. Now what?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 46,
+    "text": "‘I can’t seem to pull the trigger.’ I’m a widow, age 67, with no mortgage and $4M – but 65% of that is in stocks. Am I doing it wrong?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 47,
+    "text": "‘I survived a head-on car wreck’: I’m on Medicaid, but inheriting $290K. How do I protect it from the 5-year look-back rule?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 48,
+    "text": "‘She’s kept him afloat’: I’m 78 and leaving my daughter, 41, my life savings, but her partner is a mooch. How can I protect her?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 49,
+    "text": "‘I have an out-of-state adviser in a Republican state’: How can I tell if his political views influence his investment advice?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 50,
+    "text": "Tariffs rattle deals. Here's what's next for M&A.",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 51,
+    "text": "How the wealthy spending less could hurt the economy",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 52,
+    "text": "Stock market vs. blackjack: what are your statistical odds of winning?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 53,
+    "text": "I have $300K in a 2025 target-date fund. Is there a chance it will recover?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 54,
+    "text": "Domino’s U.S. same-store sales slip as cooling economy chills pizza maker’s profit",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 55,
+    "text": "I’m on Medicaid, but inheriting $290K. How do I protect it from the 5-year rule?",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 56,
+    "text": "How stock-market investors are navigating the wait for Trump trade deals",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 57,
+    "text": "I want to leave my daughter, 41, my life savings, but her partner doesn’t work",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 58,
+    "text": "14 financial pros reveal the No. 1 money concern their clients are facing now",
+    "timestamp": "2025-04-28 14:57:27"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 11,
+    "text": "Nvidia falls as China's Huawei reportedly readies AI chip",
+    "timestamp": "2025-04-28 15:02:29"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 17,
+    "text": "Boeing upgraded, Chipotle downgraded: Wall Street's top analyst calls",
+    "timestamp": "2025-04-28 15:02:29"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 26,
+    "text": "Cryptocurrency Prices And News: Strategy Buys $1.4B Of Bitcoin; XRP ETFs To Launch",
+    "timestamp": "2025-04-28 15:02:29"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 28,
+    "text": "Here’s Why SouthernSun SMID Cap Strategy Maintains Its Confidence in Broadridge Financial Solutions (BR)",
+    "timestamp": "2025-04-28 15:02:29"
+  },
+  {
+    "url": "https://finance.yahoo.com",
+    "line_number": 32,
+    "text": "Nvidia vs Huawei, Domino's Q1 miss, IBM's $150B US investing plan",
+    "timestamp": "2025-04-28 15:02:29"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 53,
+    "text": "‘The View’ co-host Alyssa Farah Griffin sells her D.C. townhouse for $1.8 million in just 3 weeks",
+    "timestamp": "2025-04-28 15:02:29"
+  },
+  {
+    "url": "https://www.marketwatch.com/",
+    "line_number": 55,
+    "text": "U.S. stock futures fall ahead of big week for tech earnings",
+    "timestamp": "2025-04-28 15:02:29"
+  }
+]
