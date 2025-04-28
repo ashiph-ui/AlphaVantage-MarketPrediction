@@ -76,11 +76,24 @@ if __name__ == "__main__":
             print(row)
 
 
-    # List CSV files in the ./stockdata directory
-    # csv_folder = 'data/stockdata'
-    # csv_files = [f for f in os.listdir(csv_folder) if f.endswith('.csv')]
+    possible_folders = ['data/stockdata', './stockdata']
+    csv_folder = None
+    csv_files = []
 
-    # for csv_file in csv_files:
-    #     csv_path = os.path.join(csv_folder, csv_file)
-    #     print(f"Processing {csv_file}...")
-    #     db_connector.update_stock_data_from_csv(csv_path)
+    for folder in possible_folders:
+        try:
+            csv_files = [f for f in os.listdir(folder) if f.endswith('.csv')]
+            csv_folder = folder
+            print("List of csv files found:\n" + "".join([f"- {f}\n" for f in csv_files]))
+            break
+        except Exception as e:
+            print(f"Could not access {folder}. Error: {e}")
+
+    if not csv_files:
+        print("No CSV files found. Exiting.")
+    else:
+        for csv_file in csv_files:
+            csv_path = os.path.join(csv_folder, csv_file)
+            print(f"Processing {csv_file}...")
+            db_connector.update_stock_data_from_csv(csv_path)
+    
