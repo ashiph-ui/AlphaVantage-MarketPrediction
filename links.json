@@ -1,4 +1,9 @@
 [
-"https://finance.yahoo.com",
-"https://www.marketwatch.com/"
+  "https://www.marketwatch.com/latest-news?mod=side_nav",
+  "https://www.marketwatch.com/latest-news?mod=home_ln",
+  "https://www.marketwatch.com/story/with-the-s-p-500-looking-stuck-investors-should-seek-out-stocks-that-have-already-priced-in-bad-news-says-morgan-stanley-3ea7b7a7?mod=home_ln",
+  "https://www.marketwatch.com/newswires?mod=side_nav",
+  "https://www.marketwatch.com/newsroom",
+  "https://www.marketwatch.com/story/with-the-s-p-500-looking-stuck-investors-should-seek-out-stocks-that-have-already-priced-in-bad-news-says-morgan-stanley-3ea7b7a7?mod=home_lead",
+  "https://www.marketwatch.com/story/with-the-s-p-500-looking-stuck-investors-should-seek-out-stocks-that-have-already-priced-in-bad-news-says-morgan-stanley-3ea7b7a7?mod=home_storiesyml"
 ]
