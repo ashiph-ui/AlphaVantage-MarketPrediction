@@ -19,18 +19,27 @@ def read_links_from_json(filename):
 
 # Function to initialize the Selenium WebDriver
 def init_driver():
+    driver = None
     try:
+        user = input("Who is using the script? (Biden or Ashiph): ").strip().lower()
+
+        if user == "ashiph":
+            chromedriver_path = '/Users/Admin/PersonalProject/AlphaVantage-MarketPrediction/chromedriver.exe'
+        elif user == "biden":
+            chromedriver_path = '/Users/biden/PycharmProjects/AlphaVantage-MarketPrediction/chromedriver.exe'
+        else:
+            print("Unknown user. Please enter either 'Biden' or 'Ashiph'.")
+            return None
+
         options = Options()
-        # options.add_experimental_option("prefs", {"profile.default_content_settings_values.cookies": 2})
-        # options.add_argument('--headless')  # Run in headless mode (no browser UI)
         options.add_argument('--disable-gpu')
-        # options.add_argument("--disable-features=CookieControls")
-        service = Service(executable_path='/Users/Admin/PersonalProject/AlphaVantage-MarketPrediction/chromedriver.exe')  # For chif
-        # service = Service(executable_path='/Users/biden/PycharmProjects/AlphaVantage-MarketPrediction/chromedriver.exe')  # For biden
+        # options.add_argument('--headless')  # Uncomment if headless mode is desired
+
+        service = Service(executable_path=chromedriver_path)
         driver = webdriver.Chrome(service=service, options=options)
-        print("Successful initialisation to driver")
+        print(f"WebDriver initialized for user: {user.capitalize()}")
     except Exception as e:
-        print(f"Failed to initialise driver. Error message: {e}")
+        print(f"Failed to initialize WebDriver: {e}")
 
     return driver
 
@@ -142,10 +151,10 @@ def save_scraped_data(new_data, filename):
     cleaned_new_data = []
     for item in new_data:
         url = item.get('url', '')
-        text = item.get('text', '').strip()  # 🚨 strip spaces
+        text = item.get('text', '').strip()  # strip spaces
 
         if not text:
-            continue  # ⛔ Skip items with empty text after stripping
+            continue  # Skip items with empty text after stripping
         
         key = (url, text)
         if key not in existing_keys:
@@ -162,7 +171,7 @@ def save_scraped_data(new_data, filename):
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(updated_data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ Saved {len(cleaned_new_data)} new records. Total records now: {len(updated_data)}")
+    print(f"Saved {len(cleaned_new_data)} new records. Total records now: {len(updated_data)}")
 
 def save_new_links(new_links, filename='article-data-json/extracted_links.json'):
     try:
