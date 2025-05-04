@@ -163,7 +163,7 @@ def save_scraped_data(new_data, filename):
             cleaned_new_data.append(item)
     
     if not cleaned_new_data:
-        print("ℹ️ No new non-empty, unique data to save.")
+        print("ℹNo new non-empty, unique data to save.")
         return
     
     # Step 4: Merge and save
